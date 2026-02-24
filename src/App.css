@@ -10,7 +10,7 @@
   overflow: hidden;
   border: 1px solid #d9e5e2;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  max-width: 800px;
+  max-width: 1140px;
   margin: 48px auto;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
@@ -57,6 +57,14 @@
 /* ── Main ── */
 .ma-main {
   padding: 36px 32px;
+}
+
+/* ── Hint ── */
+.ma-hint {
+  font-size: 13px;
+  font-style: italic;
+  color: #a0b5af;
+  margin: 0 0 20px;
 }
 
 /* ── Sections ── */
@@ -214,6 +222,173 @@
   box-shadow: 0 1px 4px rgba(227, 116, 52, 0.3);
 }
 
+/* ── Apply / Back Buttons ── */
+.ma-apply-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.ma-apply-btn {
+  flex: 1;
+}
+.ma-back-btn {
+  cursor: pointer;
+  width: auto;
+  padding: 16px 32px;
+}
+
+
+/* ── Version Badge ── */
+.ma-version {
+  margin-left: auto;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ── Logout Button ── */
+.ma-logout-btn {
+  margin-left: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.ma-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Login ── */
+.ma-login-form {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+.ma-login-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2c3e42;
+  margin: 0 0 24px;
+  text-align: center;
+}
+.ma-login-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4B9DA9;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+}
+.ma-login-input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid #d9e5e2;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #2c3e42;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.ma-login-input:focus {
+  border-color: #91C6BC;
+  box-shadow: 0 0 0 3px rgba(145, 198, 188, 0.2);
+}
+.ma-login-message {
+  color: #4B9DA9;
+  font-size: 14px;
+  text-align: center;
+  margin: 0 0 16px;
+  background: rgba(145, 198, 188, 0.1);
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+.ma-login-error {
+  color: #E37434;
+  font-size: 14px;
+  text-align: center;
+  margin: 0 0 12px;
+}
+.ma-login-btn {
+  margin-top: 8px;
+}
+
+/* ── Main Layout Row ── */
+.ma-layout-row {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.ma-layout-left {
+  flex: 1;
+  min-width: 0;
+}
+.ma-layout-left .ma-section {
+  margin-bottom: 0;
+}
+.ma-layout-left .ma-section + .ma-section {
+  margin-top: 36px;
+}
+.ma-layout-right {
+  flex-shrink: 0;
+}
+.ma-chart-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.ma-chart-svg {
+  display: block;
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;
+}
+.ma-chart-inner-label {
+  font-size: 16px;
+  font-weight: 700;
+  fill: #ffffff;
+  font-family: inherit;
+  pointer-events: none;
+}
+.ma-chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ma-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6b7280;
+}
+.ma-chart-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ma-chart-legend-name {
+  white-space: nowrap;
+}
+.ma-chart-legend-pct {
+  font-weight: 600;
+  font-size: 12px;
+  color: #2c3e42;
+}
+
 /* ── Empty State ── */
 .ma-results-empty {
   margin-bottom: 0;
@@ -261,7 +436,7 @@
 }
 .ma-results-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
   padding: 14px 20px;
   font-size: 12px;
   font-weight: 600;
@@ -273,7 +448,7 @@
 }
 .ma-results-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
   padding: 16px 20px;
   font-size: 15px;
   align-items: center;
@@ -281,6 +456,11 @@
 }
 .ma-results-row:last-child {
   border-bottom: none;
+}
+.ma-results-id {
+  font-size: 12px;
+  color: #a0b5af;
+  font-family: 'SF Mono', 'Fira Code', monospace;
 }
 .ma-results-name {
   font-weight: 600;
@@ -379,13 +559,13 @@
   }
 
   .ma-results-header {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 1fr;
     padding: 12px 12px;
     font-size: 10px;
     letter-spacing: 0.3px;
   }
   .ma-results-row {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 1fr;
     padding: 12px 12px;
     font-size: 13px;
   }
@@ -399,5 +579,23 @@
 
   .ma-section-title {
     font-size: 13px;
+  }
+
+  .ma-layout-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .ma-chart-wrapper {
+    flex-direction: column;
+  }
+  .ma-chart-svg {
+    width: 220px;
+    height: 220px;
+  }
+  .ma-chart-legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 14px;
   }
 }

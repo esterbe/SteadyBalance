@@ -4,6 +4,7 @@ export default function ResultsTable({ results, deposit }) {
       <h2 className="ma-section-title">Recommended Allocation</h2>
       <div className="ma-results-table">
         <div className="ma-results-header">
+          <span>ID</span>
           <span>Asset</span>
           <span>Before</span>
           <span>Buy</span>
@@ -12,6 +13,7 @@ export default function ResultsTable({ results, deposit }) {
         </div>
         {results.map((r) => (
           <div key={r.id} className="ma-results-row">
+            <span className="ma-results-id">{r.id}</span>
             <span className="ma-results-name">{r.name}</span>
             <span
               className={`ma-results-pct ${Math.abs(r.currentPct - r.targetPct) > 1 ? 'ma-pct--off' : ''}`}

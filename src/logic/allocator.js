@@ -28,7 +28,10 @@ export function calculateAllocation(currentValues, deposit, assets) {
   const TOLERANCE = 0.01;
 
   // Phase 1: allocate to assets that are below target (beyond tolerance)
-  const deficitPcts = targetPcts.map((t, i) => Math.max(0, t - currentPcts[i] - TOLERANCE));
+  const deficitPcts = targetPcts.map((t, i) => {
+    const gap = t - currentPcts[i];
+    return gap > TOLERANCE ? gap : 0;
+  });
   const deficitValues = deficitPcts.map((d) => d * totalAfter);
   const totalDeficit = deficitValues.reduce((s, v) => s + v, 0);
 
