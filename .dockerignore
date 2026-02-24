@@ -1,0 +1,8 @@
+node_modules
+.git
+.gitignore
+.idea
+.venv
+dist
+*.md
+main.py
